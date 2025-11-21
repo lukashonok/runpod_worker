@@ -1,0 +1,32 @@
+runpod_worker_comfy:
+  base_path: /runpod-volume
+  checkpoints: |
+    models/checkpoints/
+    runpod-slim/ComfyUI/models/checkpoints/
+  clip: |
+    models/clip/
+    runpod-slim/ComfyUI/models/clip/
+  clip_vision: |
+    models/clip_vision/
+    runpod-slim/ComfyUI/models/clip_vision/
+  configs: |
+    models/configs/
+    runpod-slim/ComfyUI/models/configs/
+  controlnet: |
+    models/controlnet/
+    runpod-slim/ComfyUI/models/controlnet/
+  embeddings: |
+    models/embeddings/
+    runpod-slim/ComfyUI/models/embeddings/
+  loras: |
+    models/loras/
+    runpod-slim/ComfyUI/models/loras/
+  upscale_models: |
+    models/upscale_models/
+    runpod-slim/ComfyUI/models/upscale_models/
+  vae: |
+    models/vae/
+    runpod-slim/ComfyUI/models/vae/
+  unet: |
+    models/unet/
+    runpod-slim/ComfyUI/models/unet/

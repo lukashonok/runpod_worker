@@ -17,3 +17,9 @@ RUN comfy node install --exit-on-fail comfyui-impact-pack@8.28.0
 RUN comfy node install --exit-on-fail comfyui_ultimatesdupscale@1.6.0
 RUN comfy node install --exit-on-fail rgthree-comfy
 RUN comfy node install --exit-on-fail comfyui-easy-use
+
+RUN wget -O /comfyui/models/ultralytics/bbox/Eyeful_v2-Paired.pt \
+    https://huggingface.co/GritTin/LoraStableDiffusion/resolve/c7766cc3c9b8b4f914932ce27f1cd48f25434636/Eyeful_v2-Paired.pt
+
+COPY input/ /comfyui/input/
+COPY extra_model_paths.yaml /comfyui/extra_model_paths.yaml
