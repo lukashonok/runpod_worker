@@ -21,5 +21,7 @@ RUN comfy node install --exit-on-fail comfyui-easy-use
 RUN wget -O /comfyui/models/ultralytics/bbox/Eyeful_v2-Paired.pt \
     https://huggingface.co/GritTin/LoraStableDiffusion/resolve/c7766cc3c9b8b4f914932ce27f1cd48f25434636/Eyeful_v2-Paired.pt
 
+RUN comfy node install --exit-on-fail comfyui-fluxtrainer@1.0.2
+
 COPY input/ /comfyui/input/
 COPY extra_model_paths.yaml /comfyui/extra_model_paths.yaml

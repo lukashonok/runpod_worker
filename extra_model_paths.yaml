@@ -30,3 +30,6 @@ runpod_worker_comfy:
   unet: |
     models/unet/
     runpod-slim/ComfyUI/models/unet/
+  input: |
+    input/
+    runpod-slim/ComfyUI/input/
