@@ -21,7 +21,15 @@ RUN comfy node install --exit-on-fail comfyui-easy-use
 RUN wget -O /comfyui/models/ultralytics/bbox/Eyeful_v2-Paired.pt \
     https://huggingface.co/GritTin/LoraStableDiffusion/resolve/c7766cc3c9b8b4f914932ce27f1cd48f25434636/Eyeful_v2-Paired.pt
 
+RUN comfy node install --exit-on-fail git+https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes.git
+
 RUN comfy node install --exit-on-fail comfyui-fluxtrainer@1.0.2
 
-COPY input/ /comfyui/input/
+RUN comfy node install --exit-on-fail was-ns@3.0.1
+# Install PyDrive2 for Google Drive uploads
+RUN pip install PyDrive2
+RUN pip install oauth2client
+    
+COPY handler.py /handler.py
+
 COPY extra_model_paths.yaml /comfyui/extra_model_paths.yaml

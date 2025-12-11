@@ -21,6 +21,7 @@ runpod_worker_comfy:
   loras: |
     models/loras/
     runpod-slim/ComfyUI/models/loras/
+    runpod-slim/ComfyUI/models/lora/
   upscale_models: |
     models/upscale_models/
     runpod-slim/ComfyUI/models/upscale_models/
