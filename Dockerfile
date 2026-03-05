@@ -1,5 +1,7 @@
 # clean base image containing only comfyui, comfy-cli and comfyui-manager
-FROM runpod/worker-comfyui:5.5.0-base
+FROM runpod/worker-comfyui:5.7.1-base
+
+RUN pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
 
 # install custom nodes into comfyui
 RUN comfy node install --exit-on-fail comfyui-impact-subpack@1.3.5
@@ -29,7 +31,14 @@ RUN comfy node install --exit-on-fail was-ns@3.0.1
 # Install PyDrive2 for Google Drive uploads
 RUN pip install PyDrive2
 RUN pip install oauth2client
-    
+
 COPY handler.py /handler.py
 
 COPY extra_model_paths.yaml /comfyui/extra_model_paths.yaml
+
+
+ENV CUDA_VISIBLE_DEVICES=0
+ENV CUDA_DEVICE_ORDER=PCI_BUS_ID
+ENV PYTORCH_ALLOC_CONF=expandable_segments:True
+
+RUN comfy node install --exit-on-fail git+https://github.com/JPS-GER/ComfyUI_JPS-Nodes.git
